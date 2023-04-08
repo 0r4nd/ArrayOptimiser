@@ -11,8 +11,8 @@ var arr1 = [1,2,3,4,5,6,7, 1000000]
 In memory each element will be stored on 32 bits (PACKED_ELEMENTS)
 If we decompose this array into two sub-arrays we get:
 ```javascript
-var arr2 = [[1,2,3,4,5,6,7], // PACKED_SMI_ELEMENTS (int8_t)
-            [1000000]] // PACKED_ELEMENTS (int32_t)
+var arr2 = [[1,2,3,4,5,6,7], // PACKED_SMI_ELEMENTS (int8_t) + Array overhead (16 bytes)
+            [1000000]] // PACKED_ELEMENTS (int32_t) + Array overhead (16 bytes)
 ```
 
 In terms of size we get (knowing that we need to add the size of the header of the tables themselves):
@@ -21,7 +21,17 @@ In terms of size we get (knowing that we need to add the size of the header of t
 
 TOTAL:
 - arr1 = 48 bytes
-- arr2 = 59 bytes ⭕❌⭕❌ (very bad) <br><br>
+- arr2 = 59 bytes ⭕❌ (very bad)<br><br>
+
+The tool can also use a String representation like:
+```javascript
+var arr2 = ["\x01\x02\x03\x04\x05\x06\x07", // (one-byte String) + String overhead (12 bytes) + Math.ceil(length/4)
+            [1000000]] // PACKED_ELEMENTS (int32_t) + Array overhead (16 bytes)
+```
+
+TOTAL:
+- arr1 = 48 bytes
+- arr2 = 55 bytes ⭕ (bad) <br><br>
 
 # Conclusion and tips
 - Worth for large arrays with large variance
