@@ -23,8 +23,9 @@ TOTAL:
 - arr1 = 48 bytes
 - arr2 = 59 bytes ⭕ (bad) <br><br>
 
-# Conclusion
-This tool is useful for very large arrays with a large variance.<br><br>
+# Conclusion and tips
+- Worth for large arrays with large variance
+- In javascript the String object is the smallest container for data's !<br><br>
 
 # Usage
 Here are the functions to access the 2d table, they are provided in 2 versions:
