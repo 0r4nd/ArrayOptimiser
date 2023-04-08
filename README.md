@@ -33,6 +33,13 @@ TOTAL:
 - arr1 = 48 bytes
 - arr2 = 55 bytes ⭕ (bad) <br><br>
 
+# Container sizes
+n = elements
+- String(1byte) = 12 + 4 * Math.ceil(n/4)
+- String(2byte) = 12 + 4 * Math.ceil(n/2)
+- Array(1byte) = 16 + 4 * Math.ceil(n/4)
+- Array(4bytes) = 16 + 4 * n <br><br>
+
 # Conclusion and tips
 - Worth for large arrays with large variance
 - In javascript the String object is the smallest container for data's !<br><br>
