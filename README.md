@@ -21,7 +21,7 @@ In terms of size we get (knowing that we need to add the size of the header of t
 
 TOTAL:
 - arr1 = 48 bytes
-- arr2 = 59 bytes ⭕ (bad) <br><br>
+- arr2 = 59 bytes ⭕❌⭕❌ (very bad) <br><br>
 
 # Conclusion and tips
 - Worth for large arrays with large variance
