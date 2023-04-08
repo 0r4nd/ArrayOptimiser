@@ -16,8 +16,8 @@ var arr2 = [[1,2,3,4,5,6,7], // PACKED_SMI_ELEMENTS (int8_t)
 ```
 
 In terms of size we get (knowing that we need to add the size of the header of the tables themselves):
-- arr1: (8 * 4bytes = 32 bytes) + (1 x 16bytes = 16 bytes)
-- arr2: (7 * 1byte + 1 * 4bytes = 11 bytes) + (3 x 16bytes = 48 bytes)
+- arr1 = (8 * 4bytes = 32 bytes) + (1 x 16bytes = 16 bytes)
+- arr2 = (7 * 1byte + 1 * 4bytes = 11 bytes) + (3 x 16bytes = 48 bytes)
 
 TOTAL:
 - arr1 = 48 bytes
